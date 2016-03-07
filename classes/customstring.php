@@ -12,7 +12,7 @@ class customString
 	$users,
 	$length;
 
-	function customString($inputValue)
+	function __construct($inputValue)
 	{
 		$this->value = $inputValue;
 		$this->length = strlen($this->value);
@@ -52,10 +52,10 @@ class customString
 
 	private function setWords()
 	{
-		$this->words = array();
-		$this->hashtags = array();
-		$this->urls = array();
-		$this->users = array();
+		$this->words = [];
+		$this->hashtags = [];
+		$this->urls = [];
+		$this->users = [];
 
 		$tempWords = explode(" ", $this->value);
 
@@ -83,7 +83,7 @@ class customString
 
 	private function setFrequentieTable()
 	{
-		$this->frequentieTable = array();
+		$this->frequentieTable = [];
 
 		foreach($this->words as $word)
 		{
