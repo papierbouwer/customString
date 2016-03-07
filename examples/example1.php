@@ -10,7 +10,7 @@ $string3 = "Klaar voor de finale van wie is de mol 2016 #widm #jokers #moltalk #
 $CustomString = new customString($string2);
 $CustomString->filterWithout([]);
 
-var_dump($CustomString->getFrequentyTableTable());
+var_dump($CustomString->getFrequentyTable());
 var_dump($CustomString->getHashtags());
 var_dump($CustomString->getUrls());
 var_dump($CustomString->getUsers());
