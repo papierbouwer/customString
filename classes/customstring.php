@@ -21,10 +21,12 @@ class customString
 	function filterWithout($filterWords)
 	{
 		$filter = [];
+		$currentFilter = $this->filterWithout;
 		foreach($filterWords as $word)
 		{
 			array_push($filter, strtolower($word));
 		}
+		array_merge($filter, $currentFilter);
 		$this->filterWithout = $filter;
 		return $this;
 	}
@@ -32,10 +34,12 @@ class customString
 	function filterWith($filterWords)
 	{
 		$filter = [];
+		$currentFilter = $this->filterWith;
 		foreach($filterWords as $word)
 		{
 			array_push($filter, strtolower($word));
 		}
+		array_merge($filter, $currentFilter);
 		$this->filterWith = $filter;
 		return $this;
 	}
@@ -160,6 +164,7 @@ class customString
 			$this->frequentieTable[$word] = 1;
 		}
 	}
+
 }
 
 ?>
