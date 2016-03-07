@@ -18,28 +18,34 @@ class customString
 		$this->length = strlen($this->value);
 	}
 
-	function filterWithout($filterWords)
+	function filterWithout($filterWords, $resetOldFilter = false)
 	{
 		$filter = [];
-		$currentFilter = $this->filterWithout;
 		foreach($filterWords as $word)
 		{
 			array_push($filter, strtolower($word));
 		}
-		array_merge($filter, $currentFilter);
+		if(!$resetOldFilter)
+		{
+			$currentFilter = $this->filterWithout;
+			array_merge($filter, $currentFilter);
+		}
 		$this->filterWithout = $filter;
 		return $this;
 	}
 
-	function filterWith($filterWords)
+	function filterWith($filterWords, $resetOldFilter = false)
 	{
 		$filter = [];
-		$currentFilter = $this->filterWith;
 		foreach($filterWords as $word)
 		{
 			array_push($filter, strtolower($word));
 		}
-		array_merge($filter, $currentFilter);
+		if(!$resetOldFilter)
+		{
+			$currentFilter = $this->filterWith;
+			array_merge($filter, $currentFilter);
+		}
 		$this->filterWith = $filter;
 		return $this;
 	}
