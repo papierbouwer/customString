@@ -28,7 +28,8 @@ class customString
 		if(!$resetOldFilter)
 		{
 			$currentFilter = $this->filterWithout;
-			array_merge($filter, $currentFilter);
+			if(is_array($currentFilter))
+				array_merge($filter, $currentFilter);
 		}
 		$this->filterWithout = $filter;
 		return $this;
@@ -44,7 +45,8 @@ class customString
 		if(!$resetOldFilter)
 		{
 			$currentFilter = $this->filterWith;
-			array_merge($filter, $currentFilter);
+			if(is_array($currentFilter))
+				array_merge($filter, $currentFilter);
 		}
 		$this->filterWith = $filter;
 		return $this;
@@ -147,7 +149,7 @@ class customString
 	
 	function getFrequentyTableJSON()
 	{
-		return json_encode(getFrequentyTable());
+		return json_encode($this->getFrequentyTable());
 	}
 
 	private function sortArrays()
