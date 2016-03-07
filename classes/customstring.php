@@ -137,12 +137,17 @@ class customString
 		return $this->users;
 	}
 
-	function getFrequentieTable()
+	function getFrequentyTable()
 	{
 		$this->setWords();
 		$this->setFrequentieTable();
 		$this->sortArrays();
 		return $this->frequentieTable;
+	}
+	
+	function getFrequentyTableJSON()
+	{
+		return json_encode(getFrequentyTable());
 	}
 
 	private function sortArrays()
