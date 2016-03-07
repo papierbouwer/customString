@@ -8,7 +8,7 @@ $string3 = "Klaar voor de finale van wie is de mol 2016 #widm #jokers #moltalk #
 
 $CustomString = new customString($string2);
 
-//header('Content-Type: application/json');
+header('Content-Type: application/json');
 
 echo $CustomString->filterWithout([], true)->getFrequentyTableJSON();
 
