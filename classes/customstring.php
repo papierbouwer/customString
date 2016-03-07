@@ -12,24 +12,6 @@ class customString
 	$users,
 	$length;
 
-	function utf8_for_print($string)
-	{
-		$string =  htmlspecialchars($string, ENT_NOQUOTES, "UTF-8");
-		return preg_replace('/[^\x{0009}\x{000a}\x{000d}\x{0020}-\x{D7FF}\x{E000}-\x{FFFD}]+/u',
-		' ', $string);
-	}
-
-	function countWord($word) {
-		if(isset($this->frequentieTable[$word]))
-		{
-			$this->frequentieTable[$word]++;
-		}
-		else
-		{
-			$this->frequentieTable[$word] = 1;
-		}
-	}
-
 	function customString($inputValue)
 	{
 		$this->value = $inputValue;
@@ -161,6 +143,23 @@ class customString
 		arsort($this->frequentieTable, SORT_NUMERIC);
 	}
 
+	private function utf8_for_print($string)
+	{
+		$string =  htmlspecialchars($string, ENT_NOQUOTES, "UTF-8");
+		return preg_replace('/[^\x{0009}\x{000a}\x{000d}\x{0020}-\x{D7FF}\x{E000}-\x{FFFD}]+/u',
+		' ', $string);
+	}
+
+	private function countWord($word) {
+		if(isset($this->frequentieTable[$word]))
+		{
+			$this->frequentieTable[$word]++;
+		}
+		else
+		{
+			$this->frequentieTable[$word] = 1;
+		}
+	}
 }
 
 ?>

@@ -5,7 +5,7 @@ require "./classes/customString.php";
 $string = file_get_contents('./data/string.txt');
 
 $CustomString = new customString($string);
-$CustomString->filterWithout(array(""));
+$CustomString->filterWithout([""]);
 
 $frequenty = $CustomString->getFrequentieTable();
 
